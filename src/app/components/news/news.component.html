@@ -1,0 +1,9 @@
+<ion-grid fixed>
+  <ion-row>
+    <ion-col *ngFor="let new of newsAll; let i=index" size="12" size-xs="12" size-sm="12" size-md='6' size-lg='4'
+      size-xl='3'>
+     
+     <app-unique-new [inFavoritestab]='inFavoritestab' [new]='new' [i]='i'></app-unique-new>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,5 @@
+<ion-item color="dark">
+  <ion-select slot="start" [value]="pais" #country (ionChange) ="click($event)">
+    <ion-select-option  *ngFor="let country of countries" name ='country'   [value]="country">{{country}}</ion-select-option>
+  </ion-select>
+</ion-item>

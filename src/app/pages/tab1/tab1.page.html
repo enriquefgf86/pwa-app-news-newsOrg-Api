@@ -1,0 +1,20 @@
+<ion-header  >
+  <ion-toolbar color="medium">
+    <ion-title slot='start'>
+
+      <ion-icon  src='../../../assets/home.svg' size='large' ></ion-icon>
+      
+    </ion-title>
+    <app-countries slot='end' (countrySelected)="receiveCountryToSelect($event)"></app-countries>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="dark">
+
+  <app-news [inFavoritestab]='false' [newsAll]='newsAll'></app-news>
+  <ion-infinite-scroll threshold="150px"  position="bottom" (ionInfinite)="loadDataHome($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

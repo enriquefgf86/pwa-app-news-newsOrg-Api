@@ -1,0 +1,24 @@
+<ion-header >
+  <ion-toolbar color="medium">
+    <ion-title>
+      <ion-icon src='../../../assets/world.svg' size='large'></ion-icon>
+    </ion-title>
+    <app-countries slot="end" (countrySelected)="receiveCountryToSelectInCategory($event)"></app-countries>
+
+
+  </ion-toolbar>
+  <ion-segment #IonSegment scrollable mode='md' (ionChange)="seeChangeCategory($event)">
+    <ion-segment-button *ngFor="let category of categories" mode='md' [value]="category">
+      <ion-label text-capitalize>{{category}}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content color="dark">
+  <app-news [newsAll]='newsCategoryCountry'></app-news>
+  <ion-infinite-scroll threshold="100px" position="bottom" (ionInfinite)="loadDataByCategory($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more news...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

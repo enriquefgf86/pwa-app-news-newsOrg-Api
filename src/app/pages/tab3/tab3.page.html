@@ -1,0 +1,27 @@
+<ion-header >
+  <ion-toolbar color="medium">
+    <ion-title>
+      <ion-icon src='../../../assets/favourites.svg' size='large'></ion-icon>
+    </ion-title>
+    <!-- <app-countries slot="end" (countrySelected)="receiveCountryToSelect($event)"></app-countries> -->
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-slide class="ion-padding" style="color:white" *ngIf="storageService.newsSelectedFavorites.length===0">
+    <h1>Sorry there is not data to show</h1>
+  </ion-slide>
+  
+  <ion-buttons *ngIf="storageService.newsSelectedFavorites.length>0">
+    <ion-button (click)="deleteFavorites()">
+      <ion-icon src='../../../assets/trashbin.svg' size='large'></ion-icon>
+      Delete All
+    </ion-button>
+  </ion-buttons>
+  <app-news [inFavoritestab]='true' *ngIf="storageService.newsSelectedFavorites.length>0"
+    [newsAll]="storageService.newsSelectedFavorites">
+  </app-news>
+
+
+</ion-content>
